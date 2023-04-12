@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Valor de Plano de Telefonia</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Valor de Plano de Telefonia</h1>
+        <label for="minutosConsumidos">Quantidade de minutos consumidos:</label>
+        <input type="number" id="minutosConsumidos" required>
+        <button type="button" onclick="calcularValorPlano()">Calcular</button>
+        <label for="valorAPagar">Valor a pagar:</label>
+        <input type="text" id="valorAPagar" readonly>
+    </form>
+    
+    <script>
+        function calcularValorPlano() {
+            var minutosConsumidos = parseInt(document.getElementById('minutosConsumidos').value);
+            var valorPlanoBasico = 50.00;
+            var franquiaMinutos = 100;
+            var valorMinutoExcedente = 2.00;
+            
+            var valorAPagar = valorPlanoBasico;
+            
+            if (minutosConsumidos > franquiaMinutos) {
+                var minutosExcedentes = minutosConsumidos - franquiaMinutos;
+                valorAPagar += minutosExcedentes * valorMinutoExcedente;
+            }
+            
+            document.getElementById('valorAPagar').value = "R$ " + valorAPagar.toFixed(2);
+        }
+    </script>
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordenação de Valores</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+    
+    <form id="formulario">
+
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Ordenação de Valores</h1>
+        <p>Informe 5 valores numéricos inteiros:</p>
+        
+        <label for="valor1">Valor 1:</label>
+        <input type="number" id="valor1" name="valor1" required>
+        
+        <label for="valor2">Valor 2:</label>
+        <input type="number" id="valor2" name="valor2" required>
+        
+        <label for="valor3">Valor 3:</label>
+        <input type="number" id="valor3" name="valor3" required>
+       
+        <label for="valor4">Valor 4:</label>
+        <input type="number" id="valor4" name="valor4" required>
+        
+        <label for="valor5">Valor 5:</label>
+        <input type="number" id="valor5" name="valor5" required>
+
+        <button type="submit">Ordenar Valores</button>
+        <pre id="resultado"></pre> 
+    </form>
+   
+    
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var valores = [];
+            valores.push(parseInt(document.getElementById("valor1").value));
+            valores.push(parseInt(document.getElementById("valor2").value));
+            valores.push(parseInt(document.getElementById("valor3").value));
+            valores.push(parseInt(document.getElementById("valor4").value));
+            valores.push(parseInt(document.getElementById("valor5").value));
+            valores.sort(function(a, b) {
+                return a - b; // Função de comparação para ordenação crescente
+            });
+            document.getElementById("resultado").innerText = "Ordenados: " + valores.join(", ");
+        });
+    </script>
+
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+</body>
+</html>

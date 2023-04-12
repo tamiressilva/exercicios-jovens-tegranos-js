@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Troco de Compra</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Troco de Compra</h1>
+        <label for="precoUnitario">Preço unitário do produto:</label>
+        <input type="number" id="precoUnitario" step="0.01" required>
+        <label for="quantidadeComprada">Quantidade comprada:</label>
+        <input type="number" id="quantidadeComprada" required>
+        <label for="dinheiroRecebido">Dinheiro recebido:</label>
+        <input type="number" id="dinheiroRecebido" step="0.01" required>
+        <button type="button" onclick="calcularTroco()">Calcular</button>
+        <label for="valorTroco">Valor do troco:</label>
+        <input type="text" id="valorTroco" readonly>
+    </form>
+    
+    <script>
+        function calcularTroco() {
+            var precoUnitario = parseFloat(document.getElementById('precoUnitario').value);
+            var quantidadeComprada = parseInt(document.getElementById('quantidadeComprada').value);
+            var dinheiroRecebido = parseFloat(document.getElementById('dinheiroRecebido').value);
+            
+            var valorTotalCompra = precoUnitario * quantidadeComprada;
+            var valorTroco = dinheiroRecebido - valorTotalCompra;
+            
+            if (valorTroco >= 0) {
+                document.getElementById('valorTroco').value = "R$ " + valorTroco.toFixed(2);
+            } else {
+                var valorFaltante = Math.abs(valorTroco);
+                document.getElementById('valorTroco').value = "DINHEIRO INSUFICIENTE. FALTAM R$ " + valorFaltante.toFixed(2) + " REAIS";
+            }
+        }
+    </script>
+
+
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+</body>
+</html>

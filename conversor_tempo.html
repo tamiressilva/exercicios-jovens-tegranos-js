@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Tempo</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Conversor de Tempo</h1>
+        <label for="segundos">Digite a duração em segundos:</label>
+        <input type="number" id="segundos" required>
+        <button type="button" onclick="converterTempo()">Converter</button>
+        <label for="resultado">Resultado:</label>
+        <input type="text" id="resultado" readonly>
+    </form>
+    
+    <script>
+        function converterTempo() {
+            var segundos = parseInt(document.getElementById('segundos').value);
+            var horas = Math.floor(segundos / 3600);
+            segundos %= 3600;
+            var minutos = Math.floor(segundos / 60);
+            segundos %= 60;
+            document.getElementById('resultado').value = horas + ':' + minutos + ':' + segundos;
+        }
+    </script>
+    
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+
+
+</body>
+</html>
+

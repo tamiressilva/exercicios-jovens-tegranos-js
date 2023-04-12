@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transcrição de Números por Extenso</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+  </style>
+  
+</head>
+
+<body>
+  <form>
+    <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+    <h1>Transcrição de Números por Extenso</h1>
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" name="numero" min="0" max="99" placeholder="Digite um número de até dois algarismos">
+    <button type="button" onclick="transcreverNumero()">Transcrever</button>
+    <p id="resultado"></p>
+  </form>
+  
+
+
+  <script>
+    function transcreverNumero() {
+      // Obtém o valor numérico do input
+      var numero = document.getElementById("numero").value;
+
+      // Lista de palavras correspondentes aos números de 0 a 19
+      var numerosAte19 = [
+        "", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez",
+        "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove"
+      ];
+
+      // Lista de palavras correspondentes às dezenas
+      var dezenas = [
+        "", "", "Vinte", "Trinta", "Quarenta", "Cinquenta", "Sessenta", "Setenta", "Oitenta", "Noventa"
+      ];
+
+      // Verifica se o número está entre 0 e 19
+      if (numero >= 0 && numero <= 19) {
+        document.getElementById("resultado").innerHTML = numerosAte19[numero];
+      }
+      // Verifica se o número está entre 20 e 99
+      else if (numero >= 20 && numero <= 99) {
+        var dezena = dezenas[Math.floor(numero / 10)];
+        var unidade = numerosAte19[numero % 10];
+        if (unidade === "") {
+          document.getElementById("resultado").innerHTML = dezena;
+        } else {
+          document.getElementById("resultado").innerHTML = dezena + " e " + unidade;
+        }
+      } else {
+        document.getElementById("resultado").innerHTML = "Número inválido.";
+      }
+    }
+  </script>
+
+
+  <footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+  </footer>
+</body>
+</html>

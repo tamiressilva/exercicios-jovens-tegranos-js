@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encontrar o Menor Número</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Encontrar o Menor Número</h1>
+        <label for="numero1">Primeiro valor:</label>
+        <input type="number" id="numero1" required>
+        <label for="numero2">Segundo valor:</label>
+        <input type="number" id="numero2" required>
+        <label for="numero3">Terceiro valor:</label>
+        <input type="number" id="numero3" required>
+        <button type="button" onclick="encontrarMenorNumero()">Encontrar</button>
+        <label for="resultado">Menor número:</label>
+        <input type="text" id="resultado" readonly>
+    </form>
+    
+    <script>
+        function encontrarMenorNumero() {
+            var numero1 = parseInt(document.getElementById('numero1').value);
+            var numero2 = parseInt(document.getElementById('numero2').value);
+            var numero3 = parseInt(document.getElementById('numero3').value);
+            var menor = numero1;
+            
+            if (numero2 < menor) {
+                menor = numero2;
+            }
+            
+            if (numero3 < menor) {
+                menor = numero3;
+            }
+            
+            document.getElementById('resultado').value = menor;
+        }
+    </script>
+    
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+
+
+</body>
+</html>

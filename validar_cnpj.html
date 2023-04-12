@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Validação de CNPJ</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+  </style>
+</head>
+<body>
+  <form>
+    <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+    <h1>Validação de CNPJ</h1>
+    <label for="cnpj">CNPJ:</label>
+    <input type="text" id="cnpj" name="cnpj" maxlength="18" placeholder="Digite o CNPJ">
+    <button type="button" onclick="validarCNPJ()">Validar CNPJ</button>
+    <p id="resultado"></p>
+  </form>
+
+  <script>
+    function validarCNPJ() {
+      var cnpj = document.getElementById('cnpj').value;
+      cnpj = cnpj.replace(/[^\d]+/g,'');
+
+      if (cnpj.length !== 14) {
+        document.getElementById('resultado').innerText = 'CNPJ inválido. O CNPJ deve ter 14 dígitos.';
+        return;
+      }
+
+      var tamanho = cnpj.length - 2;
+      var numeros = cnpj.substring(0, tamanho);
+      var digitos = cnpj.substring(tamanho);
+      var soma = 0;
+      var pos = tamanho - 7;
+      for (var i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) {
+          pos = 9;
+        }
+      }
+      var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+      if (resultado !== parseInt(digitos.charAt(0))) {
+        document.getElementById('resultado').innerText = 'CNPJ inválido.';
+        return;
+      }
+
+      tamanho = tamanho + 1;
+      numeros = cnpj.substring(0, tamanho);
+      soma = 0;
+      pos = tamanho - 7;
+      for (var i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) {
+          pos = 9;
+        }
+      }
+      resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+      if (resultado !== parseInt(digitos.charAt(1))) {
+        document.getElementById('resultado').innerText = 'CNPJ inválido.';
+        return;
+      }
+
+      document.getElementById('resultado').innerText = 'CNPJ válido.';
+    }
+  </script>
+
+  <footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+  </footer>
+</body>
+</html>
+
+

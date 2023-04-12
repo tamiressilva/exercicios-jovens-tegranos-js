@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabuada</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+    
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Tabuada</h1>
+        <p>Deseja a tabuada para qual valor?</p>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" name="numero" required>
+        <br>
+        <button type="submit">Mostrar Tabuada</button>
+        <pre id="resultado"></pre> 
+    </form>
+   
+   
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var numero = parseInt(document.getElementById("numero").value);
+            var resultado = "";
+            for (var i = 1; i <= 10; i++) {
+                resultado += numero + " x " + i + " = " + (numero * i) + "\n";
+            }
+            document.getElementById("resultado").innerText = resultado;
+        });
+    </script>
+
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+</body>
+</html>

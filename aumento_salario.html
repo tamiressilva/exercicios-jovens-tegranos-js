@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Aumento de Salário</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+
+    <form id="formSalario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Calculadora de Aumento de Salário</h1>
+        <label for="salario">Digite o salário da pessoa:</label>
+        <input type="number" id="salario" step="0.01">
+        
+        <button onclick="calcularAumento()">Calcular</button>
+        <p id="resultado"></p>
+    </form>
+
+    <script>
+        document.getElementById("formSalario").addEventListener("submit", function(event) {
+            event.preventDefault();
+            calcularAumento();
+        });
+
+        function calcularAumento() {
+            var salario = parseFloat(document.getElementById("salario").value);
+            var novoSalario, aumento, porcentagem;
+
+            if (salario <= 999) {
+                porcentagem = 20;
+            } else if (salario >= 1000 && salario <= 2999) {
+                porcentagem = 15;
+            } else if (salario >= 3000 && salario <= 7999) {
+                porcentagem = 10;
+            } else {
+                porcentagem = 5;
+            }
+
+            aumento = salario * (porcentagem / 100);
+            novoSalario = salario + aumento;
+
+            document.getElementById("resultado").innerHTML = "Novo salário: R$ " + novoSalario.toFixed(2) +
+                "<br>Aumento: R$ " + aumento.toFixed(2) +
+                "<br>Porcentagem de aumento: " + porcentagem + "%";
+        }
+    </script>
+
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a></p>
+</footer>
+</body>
+</html>

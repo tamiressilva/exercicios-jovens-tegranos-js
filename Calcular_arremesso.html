@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arremesso de Dardo</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Arremesso de Dardo</h1>
+        <label for="distancia1">Distância 1:</label>
+        <input type="number" id="distancia1" step="0.01" required>
+        <label for="distancia2">Distância 2:</label>
+        <input type="number" id="distancia2" step="0.01" required>
+        <label for="distancia3">Distância 3:</label>
+        <input type="number" id="distancia3" step="0.01" required>
+        <button type="button" onclick="calcularMaiorDistancia()">Calcular</button>
+        <p  id="maiorDistancia"></p>
+    </form>
+    
+    <script>
+        function calcularMaiorDistancia() {
+            var distancia1 = parseFloat(document.getElementById('distancia1').value);
+            var distancia2 = parseFloat(document.getElementById('distancia2').value);
+            var distancia3 = parseFloat(document.getElementById('distancia3').value);
+            var maiorDistancia = Math.max(distancia1, distancia2, distancia3);
+            
+            document.getElementById('maiorDistancia').innerText = "Maior distância = " + maiorDistancia.toFixed(2);
+        }
+    </script>
+    
+
+    <footer> 
+        <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+    </footer>
+</body>
+</html>

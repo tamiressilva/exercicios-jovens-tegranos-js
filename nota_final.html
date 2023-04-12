@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Nota Final</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Nota Final</h1>
+        <label for="nota1">Digite a primeira nota:</label>
+        <input type="number" step="0.01" id="nota1" required>
+        <label for="nota2">Digite a segunda nota:</label>
+        <input type="number" step="0.01" id="nota2" required>
+        <button type="button" onclick="calcularNotaFinal()">Calcular</button>
+        <label for="resultado">Nota final:</label>
+        <input type="text" id="resultado" readonly>
+        <label for="status">Status:</label>
+        <p  id="status"  >  </p> 
+    </form>
+    
+    <script>
+        function calcularNotaFinal() {
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+            var notaFinal = (nota1 + nota2);
+            document.getElementById('resultado').value = notaFinal.toFixed(1);
+            
+            if (notaFinal < 60.0) {
+                document.getElementById('status').innerText= "REPROVADO";
+            } else {
+                document.getElementById('status').innerText= "APROVADO";
+            }
+        }
+    </script>
+
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+
+
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Áreas</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+        
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Áreas</h1> 
+        <label for="medidaA">Medida A: </label>
+        <input type="number" step="0.01" id="medidaA" required>
+        <label for="medidaB">Medida B: </label>
+        <input type="number" step="0.01" id="medidaB" required>
+        <label for="medidaC">Medida C: </label>
+        <input type="number" step="0.01" id="medidaC" required>
+        <button type="submit">Calcular</button>
+        <label for="areaQuadrado">Área do Quadrado: </label>
+        <input type="number" step="0.0001" id="areaQuadrado" readonly>
+        <label for="areaTriangulo">Área do Triângulo: </label>
+        <input type="number" step="0.0001" id="areaTriangulo" readonly>
+        <label for="areaTrapezio">Área do Trapézio: </label>
+        <input type="number" step="0.0001" id="areaTrapezio" readonly>
+    </form>
+
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar comportamento padrão de submissão
+
+            // Ler valores do formulário
+            var medidaA = parseFloat(document.getElementById('medidaA').value);
+            var medidaB = parseFloat(document.getElementById('medidaB').value);
+            var medidaC = parseFloat(document.getElementById('medidaC').value);
+
+            // Calcular áreas
+            var areaQuadrado = medidaA * medidaA;
+            var areaTriangulo = (medidaA * medidaB) / 2;
+            var areaTrapezio = ((medidaA + medidaB) * medidaC) / 2;
+
+            // Mostrar resultados
+            document.getElementById('areaQuadrado').value = areaQuadrado.toFixed(4);
+            document.getElementById('areaTriangulo').value = areaTriangulo.toFixed(4);
+            document.getElementById('areaTrapezio').value = areaTrapezio.toFixed(4);
+        });
+    </script>
+
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+</body>
+</html>

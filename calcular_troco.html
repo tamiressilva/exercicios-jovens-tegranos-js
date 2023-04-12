@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de troco</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style>
+</head>
+<body>
+	<form id="formulario">
+		<img src="logo_tegra.png" class="logo" alt="Logo da empres Tegra">
+		<h1>Calculadora de troco</h1> 
+		<label for="preco">Preço unitário do produto:</label>
+		<input type="number" step="0.01" id="preco" required>
+		<label for="quantidade">Quantidade comprada:</label>
+		<input type="number" id="quantidade" required>
+		<label for="dinheiro">Dinheiro recebido:</label>
+		<input type="number" step="0.01" id="dinheiro" required>
+		<button type="submit" id="calcular">Calcular troco</button>   
+        <label for="troco">Troco:</label>
+        <input type="number" step="0.01" id="troco" readonly>
+	</form>
+    
+    <script> 
+		document.getElementById("formulario").addEventListener("submit", function(event) {
+			event.preventDefault();
+			var preco = parseFloat(document.getElementById("preco").value);
+			var quantidade = parseInt(document.getElementById("quantidade").value);
+			var dinheiro = parseFloat(document.getElementById("dinheiro").value);
+			var total = preco * quantidade;
+			var troco = dinheiro - total;
+			document.getElementById("troco").value = troco.toFixed(2);
+		});
+	</script>
+          <footer>
+			<p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+		</footer>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Raízes de Equação do Segundo Grau</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Raízes de Equação do Segundo Grau</h1>
+        <label for="coeficienteA">Coeficiente a:</label>
+        <input type="number" step="any" id="coeficienteA" required>
+        <label for="coeficienteB">Coeficiente b:</label>
+        <input type="number" step="any" id="coeficienteB" required>
+        <label for="coeficienteC">Coeficiente c:</label>
+        <input type="number" step="any" id="coeficienteC" required>
+        <button type="button" onclick="calcularRaizes()">Calcular</button>
+        <label for="raizX1">X1:</label>
+        <input type="text" id="raizX1" readonly>
+        <label for="raizX2">X2:</label>
+        <input type="text" id="raizX2" readonly>
+    </form>
+    
+    <script>
+        function calcularRaizes() {
+            var coefA = parseFloat(document.getElementById('coeficienteA').value);
+            var coefB = parseFloat(document.getElementById('coeficienteB').value);
+            var coefC = parseFloat(document.getElementById('coeficienteC').value);
+            var delta = coefB * coefB - 4 * coefA * coefC;
+            
+            if (delta >= 0) {
+                var raizX1 = (-coefB + Math.sqrt(delta)) / (2 * coefA);
+                var raizX2 = (-coefB - Math.sqrt(delta)) / (2 * coefA);
+                document.getElementById('raizX1').value = raizX1.toFixed(4);
+                document.getElementById('raizX2').value = raizX2.toFixed(4);
+            } else {
+                document.getElementById('raizX1').value = "Esta equação não possui raízes reais";
+                document.getElementById('raizX2').value = "";
+            }
+        }
+    </script>
+    
+<footer> 
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+
+
+</body>
+</html>

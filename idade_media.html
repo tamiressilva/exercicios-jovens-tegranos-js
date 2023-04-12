@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular Média de Idade</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style>
+</head>
+<body>
+ 
+  <form>
+    <img src="logo_tegra.png" class="logo" alt="Logo da empres Tegra">
+    <h1>Calcular Média de Idade</h1>
+    <label for="nome1">Nome da primeira pessoa:</label>
+    <input type="text" id="nome1" name="nome1"><br>
+
+    <label for="idade1">Idade 1:</label>
+    <input type="number" id="idade1" name="idade1">
+
+    <label for="nome2">Nome da segunda pessoa:</label>
+    <input type="text" id="nome2" name="nome2">
+
+    <label for="idade2">Idade 2:</label>
+    <input type="number" id="idade2" name="idade2">
+
+    <button type="button" onclick="calcularMedia()">Calcular Média</button> 
+    <label for="media">Média de Idade:</label>
+    <input type="text" id="media" name="media" readonly>
+  </form>
+  
+  
+  <script>
+    function calcularMedia() {
+      var nome1 = document.getElementById("nome1").value;
+      var idade1 = parseFloat(document.getElementById("idade1").value);
+      var nome2 = document.getElementById("nome2").value;
+      var idade2 = parseFloat(document.getElementById("idade2").value);
+      
+      var media = (idade1 + idade2) / 2;
+      document.getElementById("media").value = media.toFixed(1);
+    }
+    
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+    });
+  </script>
+
+
+
+     <footer>
+      <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+  </footer>
+</body>
+</html>
+
+

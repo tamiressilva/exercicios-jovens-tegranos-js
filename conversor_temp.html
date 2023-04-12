@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Temperatura</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+    <form>
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Conversor de Temperatura</h1>
+        <label for="escala">Você vai digitar a temperatura em qual escala (C/F)?</label>
+        <select id="escala" name="escala">
+            <option value="C">Celsius</option>
+            <option value="F">Fahrenheit</option>
+        </select>
+        <br>
+        <label for="temperatura">Digite a temperatura:</label>
+        <input type="number" id="temperatura" name="temperatura" step="0.01">
+        <br>
+        <button type="button" onclick="converterTemperatura()">Converter</button>
+        <p id="resultado"></p>
+    </form>
+ 
+
+    <script>
+        function converterTemperatura() {
+            var escala = document.getElementById("escala").value;
+            var temperatura = parseFloat(document.getElementById("temperatura").value);
+
+            if (escala === "C") {
+                var fahrenheit = (temperatura * 9 / 5) + 32;
+                document.getElementById("resultado").innerHTML = "Temperatura equivalente em Fahrenheit: " + fahrenheit.toFixed(2) + "°F";
+            } else if (escala === "F") {
+                var celsius = (temperatura - 32) * 5 / 9;
+                document.getElementById("resultado").innerHTML = "Temperatura equivalente em Celsius: " + celsius.toFixed(2) + "°C";
+            }
+        }
+    </script>
+
+    <footer>
+        <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+    </footer>
+</body>
+</html>

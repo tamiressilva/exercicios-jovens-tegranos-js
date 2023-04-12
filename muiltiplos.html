@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificador de Múltiplos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+
+</head>
+<body>
+    <form>
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Verificador de Múltiplos</h1>
+        <label for="num1">Digite o primeiro número inteiro:</label>
+        <input type="number" id="num1" name="num1">
+        <label for="num2">Digite o segundo número inteiro:</label>
+        <input type="number" id="num2" name="num2">
+        <button type="button" onclick="verificarMultiplos()">Verificar</button>
+        <input type="text" id="resultado" readonly>
+    </form>
+    
+   
+    <script>
+        function verificarMultiplos() {
+            // Ler os valores dos números inteiros do formulário
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+    
+            // Verificar se um número é múltiplo do outro
+            if (num1 % num2 === 0 || num2 % num1 === 0) {
+                document.getElementById("resultado").value = "São múltiplos.";
+            } else {
+                document.getElementById("resultado").value = "Não são múltiplos.";
+            }
+        }
+    </script>
+
+
+
+    <footer>
+        <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+    </footer>
+</body>
+</html>

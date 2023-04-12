@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classificação de Glicose</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+	  </style> 
+</head>
+<body>
+
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Classificação de Glicose</h1>
+        <label for="glicose">Medida da glicose (mg/dl):</label>
+        <input type="number" id="glicose" step="0.1" required>
+        <button type="button" onclick="classificarGlicose()">Classificar</button>
+        <p > Classificacão:</p>
+        <p id="classificacao"></p> 
+    </form>
+    
+    <script>
+        function classificarGlicose() {
+            var glicose = parseFloat(document.getElementById('glicose').value);
+            
+            if (glicose <= 100) {
+                document.getElementById('classificacao').innerText = "Normal";
+            } else if (glicose <= 140) {
+                document.getElementById('classificacao').innerText = "Elevado";
+            } else {
+                document.getElementById('classificacao').innerText = "Diabetes";
+            }
+        }
+    </script>
+    
+    <footer> 
+        <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+    </footer>
+
+</body>
+</html>

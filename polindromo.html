@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificador de Palíndromos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+    <form>
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Verificador de Palíndromos</h1>
+        <label for="entrada">Digite uma palavra ou número:</label>
+        <input type="text" id="entrada">
+        <button type="button" onclick="verificarPalindromo()">Verificar</button>
+        <p id="resultado"></p>
+    </form>
+    
+    <script>
+        function verificarPalindromo() {
+            var entrada = document.getElementById('entrada').value.toLowerCase();
+            var resultado = document.getElementById('resultado');
+            
+            // Remove espaços em branco e caracteres especiais da entrada
+            var entradaFormatada = entrada.replace(/[^a-zA-Z0-9]/g, '');
+
+            // Verifica se a entrada formatada é um palíndromo
+            var entradaReversa = entradaFormatada.split('').reverse().join('');
+            if (entradaFormatada === entradaReversa) {
+                resultado.innerHTML = '"' + entrada + '" é um palíndromo.';
+            } else {
+                resultado.innerHTML = '"' + entrada + '" não é um palíndromo.';
+            }
+        }
+    </script>
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+</footer>
+</body>
+</html>

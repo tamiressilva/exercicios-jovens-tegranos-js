@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Calculadora de Retângulo</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+      </style>
+  </head>
+  <body>
+    
+    <form>
+      <img src="logo_tegra.png" class="logo" alt="Logo da empres Tegra">
+      <h1>Calculadora de Retângulo</h1>
+      <label for="base">Base do Retângulo:</label>
+      <input type="number" id="base" step="0.01">
+      <br>
+      <label for="altura">Altura do Retângulo:</label>
+      <input type="number" id="altura" step="0.01">
+      <br>
+      <input type="button" value="Calcular" onclick="calcular()">
+      <br>
+      <label for="area">Área:</label>
+      <input type="text" id="area" readonly>
+      <br>
+      <label for="perimetro">Perímetro:</label>
+      <input type="text" id="perimetro" readonly>
+      <br>
+      <label for="diagonal">Diagonal:</label>
+      <input type="text" id="diagonal" readonly>
+    </form>
+    
+    <script>
+      function calcular() {
+        // Obter os valores de base e altura
+        let base = parseFloat(document.getElementById("base").value);
+        let altura = parseFloat(document.getElementById("altura").value);
+        
+        // Calcular a área, o perímetro e a diagonal
+        let area = (base * altura).toFixed(4);
+        let perimetro = ((2 * base) + (2 * altura)).toFixed(4);
+        let diagonal = Math.sqrt((base * base) + (altura * altura)).toFixed(4);
+        
+        // Atualizar os campos de resultado
+        document.getElementById("area").value = area;
+        document.getElementById("perimetro").value = perimetro;
+        document.getElementById("diagonal").value = diagonal;
+      }
+    </script>
+
+    
+         <footer>
+          <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a> </p>
+      </footer>
+  </body>
+</html>

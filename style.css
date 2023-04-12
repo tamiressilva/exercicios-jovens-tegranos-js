@@ -1,0 +1,104 @@
+
+
+body {
+	background-color: #330065;
+	color: #330065;
+    font-weight: bold;
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+}
+
+h1 {
+	color: #3d3d3d;
+	text-align: center;
+	font-size: 25px;
+	margin: 30px;
+}
+
+form {
+	background-color:#FFFFFF;
+	border: 1px solid #330065;
+    border-radius: 20px;
+	padding: 40px;
+	margin: 50px auto;
+	max-width: 500px;
+}
+
+label {
+	display: block;
+	margin-bottom: 20px;
+}
+
+input[type="number"],
+input[type="text"] {
+	border: 2px solid rgb(212, 210, 210);
+    border-radius: 8px;
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+button,
+input[type="button"] {
+	background-color: #330065;
+	border: none;
+    border-radius: 5px;
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+button:hover{
+    background-color: #D04475;
+	color: #FFFFFF;
+    border-radius: 5px;
+}
+
+
+input[type="button"]:hover {
+	background-color: #D04475;
+	color: #FFFFFF;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+	background-color: #F0F0F0;
+}
+
+.logo {
+	display: block;
+	margin: auto;
+	width: 40%;
+  }
+
+  .rodape {
+	align-items: center;
+    justify-content: center;
+	text-align: center;
+	color: rgb(214, 214, 214);
+}
+a {
+	color: #D04475; 
+	text-decoration: none ;
+  }
+  a:hover {
+	color:  #ff84af;  
+  }
+  select {
+	padding: 10px;
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	border-radius: 5px;
+	border: none;
+	background-color: #ececec;
+	cursor: pointer;
+	outline: none;
+}
+
+
+select option {
+	padding: 10px;
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	background-color: #f8f8f8;
+	color: #333;
+}

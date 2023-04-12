@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Menor e Maior Valor</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+</style>
+</head>
+<body>
+  
+  <form>
+    <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+  <h1>Menor e Maior Valor</h1>
+    <input type="number" id="valor1" placeholder="Valor 1">
+    <input type="number" id="valor2" placeholder="Valor 2">
+    <input type="number" id="valor3" placeholder="Valor 3">
+    <input type="number" id="valor4" placeholder="Valor 4">
+    <input type="number" id="valor5" placeholder="Valor 5">
+    <br>
+    <button type="button" onclick="calcularMenorMaiorValor()">Calcular</button>
+    <p id="resultado"></p>
+  </form>
+ 
+ 
+
+  <script>
+    function calcularMenorMaiorValor() {
+      // Obtém os valores dos inputs
+      var valor1 = parseInt(document.getElementById('valor1').value);
+      var valor2 = parseInt(document.getElementById('valor2').value);
+      var valor3 = parseInt(document.getElementById('valor3').value);
+      var valor4 = parseInt(document.getElementById('valor4').value);
+      var valor5 = parseInt(document.getElementById('valor5').value);
+
+      // Calcula o menor e o maior valor
+      var menorValor = Math.min(valor1, valor2, valor3, valor4, valor5);
+      var maiorValor = Math.max(valor1, valor2, valor3, valor4, valor5);
+
+      // Exibe o resultado na página
+      document.getElementById('resultado').innerHTML = 'Menor valor: ' + menorValor + '<br> Maior valor: ' + maiorValor;
+    }
+  </script>
+
+
+<footer>
+  <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Vogais e Consoantes</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Adiciona o arquivo de estilo externo -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+    <form>
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Contador de Vogais e Consoantes</h1>
+        <label for="palavra">Digite uma palavra:</label>
+        <input type="text" id="palavra">
+        <button type="button" onclick="contarVogaisConsoantes()">Contar</button>
+        <p id="resultado"></p>
+       
+    </form>
+    
+    <script>
+        function contarVogaisConsoantes() {
+            var palavra = document.getElementById('palavra').value.toLowerCase();
+            var vogais = 0;
+            var consoantes = 0;
+
+            for (var i = 0; i < palavra.length; i++) {
+                var letra = palavra[i];
+                if (letra.match(/[aeiouáéíóúàèìòùãõâêîôûäëïöü]/)) {
+                    vogais++;
+                } else if (letra.match(/[bcdfghjklmnpqrstvwxyzç]/)) {
+                    consoantes++;
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = 'Vogais: ' + vogais + '<br>Consoantes: ' + consoantes;
+        }
+    </script>
+
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a></p> <!-- Adiciona o rodapé com o link para o LinkedIn -->
+</footer>
+</body>
+</html>

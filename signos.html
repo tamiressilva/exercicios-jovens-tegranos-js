@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signo do Zodíaco</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+   
+    
+    <form>
+        
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra">
+        <h1>Descubra seu Signo do Zodíaco</h1>
+        <label for="dia">Dia de Nascimento:</label>
+        <input type="number" id="dia" min="1" max="31">
+        <label for="mes">Mês de Nascimento:</label>
+        <input type="number" id="mes" min="1" max="12">
+        <button type="button" onclick="obterSigno()">Obter Signo</button>
+        <p id="resultado"></p>
+    </form>
+  
+   
+    <script>
+        function obterSigno() {
+            
+            var dia = parseInt(document.getElementById('dia').value);
+            var mes = parseInt(document.getElementById('mes').value);
+
+            // Verifica o signo com base no dia e mês de nascimento
+            var signo = "";
+            if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 20)) {
+                signo = "Áries";
+            } else if ((mes === 4 && dia >= 21) || (mes === 5 && dia <= 20)) {
+                signo = "Touro";
+            } else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) {
+                signo = "Gêmeos";
+            } else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) {
+                signo = "Câncer";
+            } else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) {
+                signo = "Leão";
+            } else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) {
+                signo = "Virgem";
+            } else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) {
+                signo = "Libra";
+            } else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) {
+                signo = "Escorpião";
+            } else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) {
+                signo = "Sagitário";
+            } else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 20)) {
+                signo = "Capricórnio";
+            } else if ((mes === 1 && dia >= 21) || (mes === 2 && dia <= 18)) {
+                signo = "Aquário";
+            } else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) {
+                signo = "Peixes";
+            }
+
+           
+            document.getElementById('resultado').innerHTML = "Signo: " + signo;
+        }
+    </script>
+     <footer>
+        <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a></p>
+    </footer>
+   
+        
+</body>
+</html>

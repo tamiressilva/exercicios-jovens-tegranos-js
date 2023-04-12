@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soma de Números</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+    </style>
+</head>
+<body>
+   
+    <form id="formulario">
+        <img src="logo_tegra.png" class="logo" alt="Logo da empresa Tegra"> 
+        <h1>Calculadora de Soma de Números</h1> 
+        <label for="numeroInicial">Número Inicial:</label>
+        <input type="number" id="numeroInicial" name="numeroInicial" required>
+        <label for="numeroFinal">Número Final:</label>
+        <input type="number" id="numeroFinal" name="numeroFinal" required>
+        <button type="submit">Calcular</button>
+        <p id="resultado"></p> 
+</form>
+
+<script>
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var numeroInicial = parseInt(document.getElementById("numeroInicial").value);
+        var numeroFinal = parseInt(document.getElementById("numeroFinal").value);
+        var soma = 0;
+        for (var numero = numeroInicial; numero <= numeroFinal; numero++) {
+            soma += numero;
+        }
+        document.getElementById("resultado").innerText = "Resultado: " + soma;
+    });
+</script>
+
+<footer>
+    <p class="rodape">Desenvolvido por <a href="https://www.linkedin.com/in/tamires-santos-1824921ba/" target="_blank" title="linkedin">Tamires Santos</a></p>
+</footer>
+</body>
+</html>
